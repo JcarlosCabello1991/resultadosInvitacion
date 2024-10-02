@@ -125,7 +125,7 @@ function App() {
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell style={{display: 'flex'}}>Invitado <ArrowDropDownIcon onClick={orderGuests}/></StyledTableCell>
+            <StyledTableCell>Invitado <ArrowDropDownIcon onClick={orderGuests}/></StyledTableCell>
             <StyledTableCell align="right">Asistencia</StyledTableCell>
             <StyledTableCell align="right">Preboda</StyledTableCell>
             <StyledTableCell align="right">Cancion</StyledTableCell>
