@@ -40,8 +40,8 @@ function App() {
   const [totalAsistencia, setTotalAsistencia] = useState(0);
   const [totalCancionesDiferentes, setTotalCancionesDiferentes] = useState(0);
 
-  const createData = (nombre, asistencia, asistenciaPreboda, cancionSugerida, intolerancias, busIda, busVuelta) => {
-    return {nombre, asistencia, asistenciaPreboda, cancionSugerida, intolerancias, busIda, busVuelta}
+  const createData = (nombre, asistencia, asistenciaPreboda, cancionSugerida, intolerancias, busIda, busVuelta, mensaje) => {
+    return {nombre, asistencia, asistenciaPreboda, cancionSugerida, intolerancias, busIda, busVuelta, mensaje}
   }
 
   useEffect(() => {
@@ -58,7 +58,8 @@ function App() {
             el.cancionSugerida,
             el.intolerancias,
             el.busIda,
-            el.busVuelta
+            el.busVuelta,
+            el.mensaje
           )
         })
         setUsers(usersWithStyle)
@@ -132,6 +133,7 @@ function App() {
             <StyledTableCell align="right">Alergias</StyledTableCell>
             <StyledTableCell align="right">Bus Ida</StyledTableCell>
             <StyledTableCell align="right">Bus Vuelta</StyledTableCell>
+            <StyledTableCell align="right">Mensaje</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -146,6 +148,7 @@ function App() {
               <StyledTableCell align="right">{row.intolerancias}</StyledTableCell>
               <StyledTableCell align="right">{row.busIda}</StyledTableCell>
               <StyledTableCell align="right">{row.busVuelta}</StyledTableCell>
+              <StyledTableCell align="right">{row.mensaje}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
