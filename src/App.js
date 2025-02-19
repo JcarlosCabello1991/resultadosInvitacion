@@ -36,6 +36,7 @@ function App() {
   const [totalBusIda, setTotalBusIda] = useState(0);
   const [totalBusVuelta, setTotalBusVuelta] = useState(0);
   const [totalIntolerancias, setTotalIntolerancias] = useState(0);
+  const [intoleranciasList, setIntoleranciasList] = useState([]);
   const [totalPreboda, setTotalPreboda] = useState(0);
   const [totalAsistencia, setTotalAsistencia] = useState(0);
   const [totalCancionesDiferentes, setTotalCancionesDiferentes] = useState(0);
@@ -75,10 +76,14 @@ function App() {
           setTotalIntolerancias(() => {
             const total = parseResponse.message.filter(e => e.intolerancias !== "No" && e.intolerancias !== "")
             let datos = []
+            let lista = []
 
             total.forEach(e => {
+              console.log(e)
+              lista.push({"Nombre": e.nombre, "Intolerancias": e.intolerancias})
               datos.push(e.intolerancias)
             })
+            setIntoleranciasList(() => lista)
             datos = [...new Set(datos)]
             console.log(datos)
             datos.join(',');
@@ -167,6 +172,11 @@ function App() {
           })
         }
       </p>
+      {
+        intoleranciasList.map((e, index) => {
+          return <p key={`${e.Nombre}-${index}`} style={{marginLeft: '20px'}}><strong>{e.Nombre}:</strong> {e.Intolerancias}</p>
+        })
+      }
       <p><strong>Bus de Ida: </strong>{totalBusIda}</p>
       <p><strong>Bus de Vuelta: </strong>{totalBusVuelta}</p>
     </div>    
